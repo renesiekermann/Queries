@@ -1,0 +1,15 @@
+{
+    "queryId": "Machine_ID",
+    "queryText": "Machine_ID {
+      source {
+        LW_HE_MACHINES
+        }
+        filter {
+          MID = 53
+        }
+        return distinct {
+            HOSTNAME,
+            MID
+            }}",
+            "evaluatorId": ""
+    }

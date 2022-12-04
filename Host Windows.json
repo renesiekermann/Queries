@@ -1,0 +1,21 @@
+queryId: Host_windows_query
+queryText: |-
+  {
+      source {
+          LW_HE_PROCESSES
+      }
+      filter {
+          OS = 'Windows'
+          and (CONTAINS(CMDLINE, 'svc'))
+      }
+      return {
+          OS,
+          MID,
+          CMDLINE,
+          EXE_PATH,
+          PID,
+          PID_HASH,
+          PROCESS_START_TIME,
+          USERNAME
+      }
+  }

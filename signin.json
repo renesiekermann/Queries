@@ -1,0 +1,16 @@
+{
+    "queryId": "Signin_data",
+    "queryText": "Signin_data {
+      source {
+        CloudTrailRawEvents
+        }
+        filter {
+            EVENT_SOURCE = 'signin.amazonaws.com'
+            and EVENT:additionalEventData.MFAUsed = 'No'
+            and not value_exists(EVENT:additionalEventData.SamlProviderArn)
+        }
+        return distinct {
+            EVENT
+            }}",
+            "evaluatorId": "Cloudtrail"
+    }

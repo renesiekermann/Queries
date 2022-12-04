@@ -1,0 +1,15 @@
+queryId: New_public_ip
+queryText: |-
+  {
+    source {
+        LW_CFG_AZURE_NETWORK_PUBLICIPADDRESSES
+    }
+    filter {
+        DIFF_HOURS(QUERY_START_TIME, CURRENT_TIMESTAMP_SEC()::Timestamp) <= 1
+        and RESOURCE_CONFIG:provisioningState = 'Succeeded'
+    }
+    return distinct {
+        LW_CFG_AZURE_NETWORK_PUBLICIPADDRESSES.*,
+        'NewPublicIPDetected' as COMPLIANCE_FAILURE_REASON
+    }
+   }

@@ -1,0 +1,15 @@
+{
+    "queryId": "KMS_data",
+    "queryText": "KMS_data {
+      source {
+        CloudTrailRawEvents
+        }
+        filter {
+            EVENT_SOURCE = 'kms.amazonaws.com'
+            and EVENT:userIdentity.accountId = '618874043892'
+        }
+        return distinct {
+            EVENT
+            }}",
+            "evaluatorId": "Cloudtrail"
+    }

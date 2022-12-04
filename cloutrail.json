@@ -1,0 +1,14 @@
+{
+    "queryId": "cloudtrail_data",
+    "queryText": "cloudtrail_data {
+      source {
+        CloudTrailRawEvents
+        }
+        filter {
+            EVENT:userIdentity.accessKeyId = 'ASIASG7G2F5GAMK2HT72'
+        }
+        return distinct {
+            EVENT
+            }}",
+            "evaluatorId": "Cloudtrail"
+    }

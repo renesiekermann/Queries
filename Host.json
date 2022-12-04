@@ -1,0 +1,19 @@
+queryId: Host_query
+queryText: |-
+  {
+      source {
+          LW_HE_PROCESSES
+      }
+      filter {
+          RIGHT(EXE_PATH, 3) = 'exe'
+      }
+      return {
+          MID,
+          CMDLINE,
+          EXE_PATH,
+          PID,
+          PID_HASH,
+          PROCESS_START_TIME,
+          USERNAME
+      }
+  }
